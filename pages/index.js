@@ -6,6 +6,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Sevi Codes</title>
+        {/* Make favicon for website Head */}
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
