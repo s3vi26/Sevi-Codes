@@ -9,6 +9,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import AboutMe from './aboutMe';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,7 +79,7 @@ export default function Home() {
               indicatorColor="primary"
               textColor="primary"
               variant="fullWidth"
-              aria-label="full width tabs example"
+              aria-label="full width tabs"
             >
               <Tab label="About Me" {...a11yProps(0)} />
               <Tab label="Projects" {...a11yProps(1)} />
@@ -92,7 +93,7 @@ export default function Home() {
               onChangeIndex={handleChangeIndex}
             >
               <TabPanel value={value} index={0} dir={theme.direction}>
-                Item One - About Me
+                <AboutMe />
               </TabPanel>
               <TabPanel value={value} index={1} dir={theme.direction}>
                 Item Two - Projects
