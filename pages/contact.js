@@ -1,8 +1,11 @@
 // Form to send me email + social links
 import { useState } from 'react';
+import axios from "axios";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
+
+const { REACT_APP_API_DOMAIN } = process.env;
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -13,12 +16,30 @@ export default function Contact() {
   const [description, setDescription] = useState('');
 
   const submit = (event) => {
-    console.log(`the data: ${name} ${title} ${email} ${phone} ${link} ${description}`)
-    // api w/ axios to send form data
-    
-    // when response.status 200 then pop dialog w/ ok button to close dialog
-    // https://material-ui.com/components/dialogs/
-    event.preventDefault();
+    try {
+      event.preventDefault();
+      console.log(`the data: ${name} ${title} ${email} ${phone} ${link} ${description}`);
+      // api w/ axios to send form data
+      const res = axios({
+        method: 'POST',
+        url:`https://${REACT_APP_API_DOMAIN}/sendEmail`,
+        body: {
+          name,
+          title,
+          email,
+          phone,
+          link,
+          description
+        }
+      });
+      
+      if (res.status = 200) {
+        // when response.status 200 then pop dialog w/ ok button to close dialog
+        // https://material-ui.com/components/dialogs/
+      }
+    } catch(e) {
+      console.log(e);
+    }
   }
 
   return (
