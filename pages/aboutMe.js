@@ -1,12 +1,38 @@
 // Summary about myself. Photo w/ header
 import styles from '../styles/AboutMe.module.css';
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import { indigo } from '@material-ui/core/colors';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  large: {
+    border: `1px solid ${indigo[500]}`,
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+  },
+}));
 
 export default function AboutMe() {
-    
+  const classes = useStyles();
   return (
     <div className={styles.box}>
-      <div>
-        <img className={styles.photo} src="/resumePhoto.jpg" />
+      <div className={classes.root}>
+        <Avatar alt="Sevi" src="/resumePhoto.jpg" className={classes.large}/>
+        <a href="https://github.com/s3vi26/">
+          <Avatar alt="Github" src="/github.png" />
+        </a>
+        <a href="https://twitter.com/s3vi26">
+          <Avatar alt="Twitter" src="/twitter.png" />
+        </a>
+        <a href="https://www.instagram.com/sevi.codes/">
+          <Avatar alt="Instagram" src="/instagram.png" />
+        </a>
       </div>
       <div>
         <p className={styles.text}>
