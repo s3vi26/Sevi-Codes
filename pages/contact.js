@@ -5,8 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 
-const { REACT_APP_API_DOMAIN } = process.env;
-
 export default function Contact() {
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
@@ -22,20 +20,24 @@ export default function Contact() {
       // api w/ axios to send form data
       const res = axios({
         method: 'POST',
-        url:`https://${REACT_APP_API_DOMAIN}/sendEmail`,
-        body: {
+        url:`${process.env.REACT_APP_API_DOMAIN}/sendEmail`,
+        header: {
+          'x-api-key': `${process.env.REACT_APP_API_KEY}`
+        },
+        body: JSON.stringify({
           name,
           title,
           email,
           phone,
           link,
           description
-        }
+        })
       });
-      
+      console.log(res);
       if (res.status = 200) {
         // when response.status 200 then pop dialog w/ ok button to close dialog
         // https://material-ui.com/components/dialogs/
+        console.log('dialog pop!');
       }
     } catch(e) {
       console.log(e);
