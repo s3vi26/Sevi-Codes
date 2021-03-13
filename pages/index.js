@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import AboutMe from './aboutMe';
 import Contact from './contact';
+import Projects from './projects';
+// import Blog from './blog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,7 +99,7 @@ export default function Home() {
                 <AboutMe />
               </TabPanel>
               <TabPanel value={value} index={1} dir={theme.direction}>
-                Item Two - Projects
+                <Projects/>
               </TabPanel>
               <TabPanel value={value} index={2} dir={theme.direction}>
                 <Contact />
