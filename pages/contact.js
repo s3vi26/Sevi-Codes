@@ -13,29 +13,26 @@ export default function Contact() {
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
 
-  const submit = (event) => {
+  const submit = async (event) => {
     try {
       event.preventDefault();
       console.log(`the data: ${name} ${title} ${email} ${phone} ${link} ${description}`);
       // api w/ axios to send form data
-      const res = axios({
+      const res = await axios({
         method: 'POST',
-        url:`${process.env.REACT_APP_API_DOMAIN}/sendEmail`,
-        header: {
-          'x-api-key': `${process.env.REACT_APP_API_KEY}`
-        },
-        body: JSON.stringify({
+        url:'api/sendEmail',
+        data: {
           name,
           title,
           email,
           phone,
           link,
           description
-        })
+        },
       });
       console.log(res);
-      if (res.status = 200) {
-        // when response.status 200 then pop dialog w/ ok button to close dialog
+      if (res.statusCode = 200) {
+        // when response.statusCode 200 then pop dialog w/ ok button to close dialog
         // https://material-ui.com/components/dialogs/
         console.log('dialog pop!');
       }
