@@ -25,7 +25,8 @@ export default function AboutMe() {
       <div className={classes.root}>
         <Avatar alt="Sevi" src="/resumePhoto.jpg" className={classes.large}/>
         {/* Header w/ name Nicole Sevillano (Sevi) */}
-        <div><h2>Nicole Sevillano (Sevi)</h2>
+        <div>
+          <h2>Nicole Sevillano (Sevi)</h2>
           <div className={classes.root}>
             <a href="https://github.com/s3vi26/">
               <Avatar alt="Github" src="/github.png" />
