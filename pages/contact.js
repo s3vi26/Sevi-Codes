@@ -61,7 +61,7 @@ export default function Contact() {
     if (regex.test(str) === false) {
       console.log('regex does not match');
       setEmailError(true);
-    } else if (regex.test(str) === true) {
+    } else {
       console.log('regex match is true');
       setEmailError(false);
     }

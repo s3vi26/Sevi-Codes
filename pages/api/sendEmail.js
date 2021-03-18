@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import axios from "axios";
 
 export default async (req, res) => {
@@ -18,10 +17,13 @@ export default async (req, res) => {
     if (response.data) {
       res.statusCode = 200;
       res.send(response.data);
+    } else {
+      res.statusCode = 200;
+      res.send('Email Sent!');
     }
-    res.send('Email Sent!')
   } catch (e) {
-    
+    console.log('error occured: ');
+    console.log(e);
   }
   
 }

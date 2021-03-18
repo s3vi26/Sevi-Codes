@@ -24,7 +24,6 @@ export default function AboutMe() {
     <div className={styles.box}>
       <div className={classes.root}>
         <Avatar alt="Sevi" src="/resumePhoto.jpg" className={classes.large}/>
-        {/* Header w/ name Nicole Sevillano (Sevi) */}
         <div>
           <h2>Nicole Sevillano (Sevi)</h2>
           <div className={classes.root}>
@@ -37,6 +36,7 @@ export default function AboutMe() {
             <a href="https://www.instagram.com/sevi.codes/">
               <Avatar alt="Instagram" src="/instagram.png" />
             </a>
+            {/* link to download pdf resume */}
           </div>
         </div>
       </div>
